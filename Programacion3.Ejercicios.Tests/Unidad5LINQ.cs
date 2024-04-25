@@ -301,3 +301,88 @@ namespace Programacion3.Ejercicios.Tests
 
     }
 }
+//10: Cuantos jugadores tiene el equipo que esta segundo en el ranking >> 2 jugadores
+/*[Fact]
+public void unidad5_test10_jugadoresEquipoSegundo()
+{
+    var equipos = GenerarEquipos();
+
+    IEnumerable<int> jugadores =
+        from e in equipos
+        where e.Ranking == 2
+        select e.Jugadores.Count;
+
+    Assert.Equal(4, jugadores.Sum());
+}
+
+//11: Cual es el Ranking del equipo con mas jugadores >> 2do ranking
+
+[Fact]
+public void unidad5_test11_EquipoConMasJugadores_Ranking()
+{
+    var equipos = GenerarEquipos();
+    IEnumerable<int> jugadores =
+       from e in equipos
+       orderby e.Jugadores.Count descending
+       select e.Ranking;
+
+
+    // Encontramos el equipo con más jugadores y obtenemos su ranking
+    var rankingEquipoMasJugadores =
+        (from e in equipos
+         orderby e.Jugadores.Count descending
+         select e.Ranking)
+        .First();
+
+    Assert.Equal(2, rankingEquipoMasJugadores);
+    Assert.Equal(2, jugadores.First());// Esperamos que tenga el segundo ranking
+}
+
+//12: Cual es el promedio de goles de jugadores que parte del nombre sea "J 1"
+[Fact]
+public void unidad5_test12_PromedioGoles_JugadoresNombreJ1()
+{
+    var equipos = GenerarEquipos();
+
+    IEnumerable<int> jugadores =
+        from e in equipos
+        from jugador in e.Jugadores
+        where jugador.Nombre.StartsWith("J 1")
+        select jugador.Goles;
+
+
+
+    Assert.Equal(3.6666666666666665, jugadores.Average());
+
+}
+
+
+
+
+//13: Cual de los equipos posee el nombre de jugador mas largo
+
+[Fact]
+public void unidad5_test13_EquipoNombreMasLargo()
+{
+    var equipos = GenerarEquipos();
+
+    IEnumerable<int> jugadores =
+        from e in equipos
+        from jugador in e.Jugadores
+        select jugador.Nombre.Length;
+    // Encontramos el nombre de jugador más largo entre todos los equipos
+    var nombreMasLargo = jugadores.Max();
+
+
+    IEnumerable<String> jugadoresEquipo =
+      from e in equipos
+      from jugador in e.Jugadores
+      where jugador.Nombre.Length == nombreMasLargo
+      select e.Nombre;
+
+    // Buscamos el equipo que tenga un jugador con ese nombre más largo
+    var equipoNombreMasLargo = jugadoresEquipo.First();
+
+
+    Assert.Equal("Equipo 3", equipoNombreMasLargo); // Esperamos que sea el Equipo 3
+}*/
